@@ -21,17 +21,11 @@ h1 {
 }
 
 input {
-	background:rgba(255,255,255,0.3);
-	border:1px solid #fff;
-	padding:0px 20px;
-	color:#2a4a5f;	
-	margin:0px 10px 0px 10px;
-	display:inline-block;
-	width:calc(100% - 548px);
-	height:52px;
+	background-color:#f8fafb;
+	border:1px solid #cae3f5;
 	border-radius:0px;
-	vertical-align:middle;
-	font-size:16px;
+	font-size:14px; line-height:22px;
+	color:#2a4a5f;
 	font-family: 'Lato', sans-serif;
 }
 input::-webkit-input-placeholder { color:#2a4a5f; font-style:italic; }

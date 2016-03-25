@@ -32,6 +32,36 @@ input::-webkit-input-placeholder { color:#2a4a5f; font-style:italic; }
 input::-moz-placeholder { color:#2a4a5f; font-style:italic; }
 input:-moz-placeholder { color:#2a4a5f; font-style:italic; }
 input:-ms-input-placeholder { color:#2a4a5f; font-style:italic; }
+.yellow_button, {
+	color:#2a4a5f;
+	font-weight:900;
+	text-transform:uppercase;
+	padding:12px 20px;
+	text-align:center;
+	font-size:16px;
+	line-height:30px;
+	margin-bottom:10px;
+	background-color:#ffdf4f;	
+	cursor:pointer;
+	display:inline-block;
+}
+
+.yellow_button:hover { background-color:#fcdf5e; }
+.blue_button {
+	color:#fff;
+	font-weight:900;
+	text-transform:uppercase;
+	padding:12px 20px;
+	text-align:center;
+	font-size:16px;
+	line-height:30px;
+	margin-bottom:10px;
+	background-color:#0e76bd;
+	cursor:pointer;
+	display:inline-block;
+	text-decoration:none;
+}
+.blue_button:hover { background-color:#177cc1; }
 
 
 

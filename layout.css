@@ -1,0 +1,16 @@
+body {
+	background-color:#fff;
+	margin:0px;
+	padding:0px;
+	height:100%;
+	font:16px/26px 'Lato', sans-serif;
+	color:#181a1c;
+	}
+h1 {
+	font-family: 'Bangers', cursive;
+	margin:0px 0px 30px 0px;
+	padding:0px;
+	font-size:62px;
+	line-height:80px;
+	color:#181a1c;
+}

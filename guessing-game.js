@@ -15,6 +15,7 @@ function generateNumber () {
 	return Math.round(Math.random()*100);
 }
 
+/*
 function guess() {
 	var guess = parseInt($("#submit").val());
 	if validateGuess(guess) {
@@ -39,3 +40,4 @@ function validateGuess(num) {
 	return (num > 0 && <= 100) ? true : false;
 
 }
+*/

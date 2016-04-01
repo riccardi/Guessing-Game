@@ -1,5 +1,5 @@
 var winningNum = generateNumber();
-var numGuesses = 0;
+var numGuesses = 5;
 var prevGuesses = [];
 
 $(document).ready(function() {
@@ -11,6 +11,10 @@ $(document).ready(function() {
 		$("#guess").attr("value","");
 	});
 
+	$("#play_again").click(function() {
+		tryAgain();
+	});
+
 });
 
 function generateNumber() {
@@ -18,25 +22,29 @@ function generateNumber() {
 }
 
 function guess(numberGuessed) {
-	numGuess = parseInt(numberGuessed);
-	if (isValid(numGuess) == "Valid") {
-		var direction = '';
-		var distance = ''
-		if (guess == winningNum) {
-			return "You are the winner!";
-		} else if (guess > winningNum) {
-			direction = "Your guess is too high"
-		} else if (guess < winningNum) {
-			direction = "Your guess is too low"
+	if (numGuesses == 0) {
+		return "You have no more guesses left. Please click Try Again.";
+	} else {
+		numGuess = parseInt(numberGuessed);
+		if (isValid(numGuess) == "Valid") {
+			var direction = '';
+			var distance = ''
+			if (guess == winningNum) {
+				return "You are the winner!";
+			} else if (guess > winningNum) {
+				direction = "Your guess is too high"
+			} else if (guess < winningNum) {
+				direction = "Your guess is too low"
+			}
+			numGuesses--;
+			prevGuesses.push(numGuess);
+			$("#num_guesses > span").html(numGuesses);
+			return "Try again. " + direction + distance;
+		} else if (isValid(numGuess) == "Invalid") {
+			return "Your guess is not valid. Please input a number between 1 & 100";
+		} else if (isValid(numGuess) == "Duplicate") {
+			return "You submitted a duplicate guess.";
 		}
-		numGuesses++;
-		prevGuesses.push(numGuess);
-		$("#num_guesses > span").html(numGuesses);
-		return "Try again. " + direction + distance;
-	} else if (isValid(numGuess) == "Invalid") {
-		return "Your guess is not valid. Please input a number between 1 & 100";
-	} else if (isValid(numGuess) == "Duplicate") {
-		return "You submitted a duplicate guess.";
 	}
 }
 
@@ -49,4 +57,10 @@ function isValid(num) {
 	} else {
 		return "Valid";
 	}
+}
+
+function tryAgain() {
+	numGuesses = 5;
+	prevGuesses = [];
+	winningNum = generateNumber();
 }

@@ -1,11 +1,12 @@
 $(document).ready(function() {
-	console.log("here");
 	var winningNum = generateNumber();
 	var numGuesses = 0;
 
+	console.log("winning number: " + winningNum);
+
 	$("#submit").click(function() {
 		console.log("clicked");
-		alert($("#submit").val());
+		alert($("#guess").val());
 	});
 
 });

@@ -3,7 +3,7 @@ var numGuesses = 5;
 var prevGuesses = [];
 
 $(document).ready(function() {
-	console.log("winning number: " + winningNum);
+	//console.log("winning number: " + winningNum);
 	$("#guess").keypress(function(e) {
 	    if(e.which == 13) {
 	        var message = guess($("#guess").val());
@@ -88,9 +88,8 @@ function isWinningNumber(num) {
 		$("#hint").attr("disabled","disabled");
 		$("#submit").attr("disabled","disabled");
 		displayGIF("winner");
-		numGuesses--;
-		$("#num_guesses > span").html(numGuesses);
 		numGuesses = 0;
+		$("#num_guesses > span").html(numGuesses);
 		return true;
 	} else {
 		return false;
@@ -111,7 +110,7 @@ function playAgain() {
 	numGuesses = 5;
 	prevGuesses = [];
 	winningNum = generateNumber();
-	console.log("new winning number: " + winningNum);
+	//console.log("new winning number: " + winningNum);
 	$("#status").html("");
 	$("#hint").removeAttr("disabled");
 	$("#submit").removeAttr("disabled");

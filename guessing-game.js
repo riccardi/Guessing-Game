@@ -109,10 +109,10 @@ function displayGIF(player_status) {
 '<iframe src="http://i.imgur.com/n0mcL51.gifv" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'];
 
 	if(player_status == "winner") {
-		var index = Math.round(Math.random()*winnerGIFs.length;
+		var index = Math.round(Math.random()*winnerGIFs.length);
 		$("#gif").html(winnerGIFs[index]);
 	} else {
-		var index = Math.round(Math.random()*loserGIFs.length;
+		var index = Math.round(Math.random()*loserGIFs.length);
 		$("#gif").html(loserGIFs[index]);
 	}
 }

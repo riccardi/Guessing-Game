@@ -51,6 +51,7 @@ function guess(num) {
 			return "You submitted a duplicate guess.";
 		}
 	}
+	console.log(prevGuesses);
 }
 
 function lowerOrHigher(num) {

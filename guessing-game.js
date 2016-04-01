@@ -100,7 +100,7 @@ function isWinningNumber(num) {
 function isValid(num) {
 	if (num.match(/[a-z]/i) || parseInt(num) < 1 || parseInt(num) > 100) {
 		return "Invalid";
-	} else if (prevGuesses.indexOf(parseInt(num) != -1) {
+	} else if (prevGuesses.indexOf(parseInt(num) != -1)) {
 		return "Duplicate";
 	} else {
 		return "Valid";

@@ -89,11 +89,8 @@ function isWinningNumber(num) {
 		$("#submit").attr("disabled","disabled");
 		displayGIF("winner");
 		numGuesses--;
-		$("#guess").keypress(function(e) {
-	    	if(e.which == 13) {
-	    		e.preventDefault();
-	    	}
-	    });
+		$("#num_guesses > span").html(numGuesses);
+		numGuesses = 0;
 		return true;
 	} else {
 		return false;

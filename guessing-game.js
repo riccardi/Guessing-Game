@@ -7,7 +7,7 @@ var winnerGifs = ['<iframe src="//giphy.com/embed/xbASkE3pEK7pC" width="480" hei
 var loserGifs = ['<iframe src="//giphy.com/embed/oIOVkU7Upb3wY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
 '<iframe src="//giphy.com/embed/TlTxstYNiz0Yg" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
 '<iframe src="//giphy.com/embed/oRFWicT90ngbK" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
-'<iframe src="http://i.imgur.com/n0mcL51.gifv" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>']
+'<iframe src="http://i.imgur.com/n0mcL51.gifv" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'];
 
 $(document).ready(function() {
 	console.log("winning number: " + winningNum);
@@ -53,7 +53,7 @@ function guess(num) {
 			} else if (numberGuessed < winningNum) {
 				direction = "Your guess is too low"
 			}
-			$("#gif").html('');
+			$("#gif").html('<iframe src="http://i.imgur.com/n0mcL51.gifv" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
 			numGuesses--;
 			prevGuesses.push(numberGuessed);
 			$("#num_guesses > span").html(numGuesses);

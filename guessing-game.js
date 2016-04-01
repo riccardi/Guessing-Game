@@ -4,7 +4,6 @@ var prevGuesses = [];
 
 $(document).ready(function() {
 	console.log("winning number: " + winningNum);
-
 	$("#guess").keypress(function(e) {
 	    if(e.which == 13) {
 	        var message = guess($("#guess").val());
@@ -34,7 +33,6 @@ function generateNumber() {
 }
 
 function guess(num) {
-	console.log(prevGuesses);
 	if (numGuesses == 0) {
 		$("#hint").attr("disabled","disabled");
 		$("#submit").attr("disabled","disabled");
@@ -110,6 +108,7 @@ function isValid(num) {
 function playAgain() {
 	numGuesses = 5;
 	prevGuesses = [];
+	console.log("prevGuesses: " + prevGuesses);
 	winningNum = generateNumber();
 	console.log("new winning number: " + winningNum);
 	$("#status").html("");

@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
 	console.log("here");
 	var winningNum = generateNumber();

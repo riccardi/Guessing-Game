@@ -15,6 +15,11 @@ $(document).ready(function() {
 		tryAgain();
 	});
 
+	$("#hint").click(function() {
+		var hint = giveHint();
+		$("#status").html(hint);
+	});
+
 });
 
 function generateNumber() {
@@ -23,7 +28,8 @@ function generateNumber() {
 
 function guess(num) {
 	if (numGuesses == 0) {
-		return "You have no more guesses left. Please click Try Again.";
+		return "You have no more guesses left. Please click Play Again.";
+		$("#hint").attr("disabled","disabled");
 	} else {
 		numberGuessed = parseInt(num);
 		if (isValid(numberGuessed) == "Valid") {
@@ -31,6 +37,8 @@ function guess(num) {
 			var distance = ''
 			if (numberGuessed == winningNum) {
 				return "You are the winner!";
+				$("#hint").attr("disabled","disabled");
+				$("#submit").attr("disabled","disabled");
 			} else if (numberGuessed > winningNum) {
 				direction = "Your guess is too high"
 			} else if (numberGuessed < winningNum) {
@@ -63,6 +71,19 @@ function tryAgain() {
 	numGuesses = 5;
 	prevGuesses = [];
 	winningNum = generateNumber();
+	console.log("new winning number: " + winningNum);
 	$("#status").html("");
+	$("#hint").attr("disabled","");
+	$("#submit").attr("disabled","");
 	$("#num_guesses > span").html(numGuesses);
+}
+
+function giveHint() {
+	var hintArray = [];
+	for(var i=0; i < (numGuesses*2); i++) {
+		hintArray.push(generateNumber());
+	}
+	var index = Math.round(Math.random*hintArray.length);
+	hintArray.splice(index,0,winningNum);
+	return "One of these is the winning number: " + hintArray.join(", ");
 }

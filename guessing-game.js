@@ -155,7 +155,7 @@ function displayGIF(player_status) {
 	} else {
 		var index = Math.round(Math.random()*loserGIFs.length);
 		//Make sure a different GIF is being displayed
-		if(("#gif").html() != $("#gif").html(loserGIFs[index])) {
+		if($("#gif").html() != $("#gif").html(loserGIFs[index])) {
 			$("#gif").html(loserGIFs[index]);
 		} else {
 			displayGIF(player_status);

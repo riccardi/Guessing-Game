@@ -28,13 +28,12 @@ function generateNumber() {
 
 function guess(num) {
 	if (numGuesses == 0) {
-		return "You have no more guesses left. Please click Play Again.";
 		$("#hint").attr("disabled","disabled");
+		$("#submit").attr("disabled","disabled");
+		return "You have no more guesses left. Please click Play Again.";
 	} else {
 		numberGuessed = parseInt(num);
 		if (isValid(numberGuessed) == "Valid") {
-			var direction = '';
-			var distance = ''
 			if (isWinningNumber(numberGuessed)) {
 				return "You are the winner!";
 			} else {
@@ -52,7 +51,7 @@ function lowerOrHigher(num) {
 	var direction = '';
 	var distance = '';
 	var difference = Math.abs(winningNum-num);
-	
+
 	if (num > winningNum) {
 		direction = "Your guess is too high ";
 	} else {
@@ -130,7 +129,9 @@ function displayGIF(player_status) {
 	var loserGIFs = ['<iframe src="//giphy.com/embed/oIOVkU7Upb3wY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
 '<iframe src="//giphy.com/embed/TlTxstYNiz0Yg" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
 '<iframe src="//giphy.com/embed/oRFWicT90ngbK" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
-'<iframe src="http://i.imgur.com/n0mcL51.gifv" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'];
+'<iframe src="http://i.imgur.com/n0mcL51.gifv" width="294" height="233" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+'<iframe src="http://i.imgur.com/wT1oWv4.gifv" width="385" height="284" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+'<iframe src="http://i.imgur.com/VUuQFqu.gifv" width="321" height="261" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'];
 
 	if(player_status == "winner") {
 		var index = Math.round(Math.random()*winnerGIFs.length);

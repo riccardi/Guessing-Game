@@ -72,8 +72,6 @@ button { border:none; font:16px/26px 'Lato', sans-serif; }
 #buttons_container { margin-top:30px; margin-bottom:20px; }
 #num_guesses { font-weight: 900; color:#2a4a5f; margin-bottom:15px; }
 #num_guesses span { font-size:40px; line-height: 54px; }
-iframe #content { width:100% !important; height:100% !important; text-align: center; }
-iframe #chrome { display: none; }
 #status { font-size:17px; margin-bottom:30px; }
 
 

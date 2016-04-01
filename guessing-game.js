@@ -83,7 +83,7 @@ function giveHint() {
 	for(var i=0; i < (numGuesses*2); i++) {
 		hintArray.push(generateNumber());
 	}
-	var index = Math.round(Math.random*hintArray.length);
+	var index =Math.round(Math.random()*hintArray.length);
 	hintArray.splice(index,0,winningNum);
 	return "One of these is the winning number: " + hintArray.join(", ");
 }

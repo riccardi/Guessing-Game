@@ -25,8 +25,8 @@ function guess(numberGuessed) {
 	if (numGuesses == 0) {
 		return "You have no more guesses left. Please click Try Again.";
 	} else {
-		numGuess = parseInt(numberGuessed);
-		if (isValid(numGuess) == "Valid") {
+		guess = parseInt(numberGuessed);
+		if (isValid(guess) == "Valid") {
 			var direction = '';
 			var distance = ''
 			if (guess == winningNum) {
@@ -37,7 +37,7 @@ function guess(numberGuessed) {
 				direction = "Your guess is too low"
 			}
 			numGuesses--;
-			prevGuesses.push(numGuess);
+			prevGuesses.push(guess);
 			$("#num_guesses > span").html(numGuesses);
 			return "Try again. " + direction + distance;
 		} else if (isValid(numGuess) == "Invalid") {
@@ -63,4 +63,6 @@ function tryAgain() {
 	numGuesses = 5;
 	prevGuesses = [];
 	winningNum = generateNumber();
+	$("#status").html("");
+	$("#num_guesses > span").html(numGuesses);
 }

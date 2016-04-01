@@ -3,10 +3,10 @@ $(document).ready(function() {
 	var winningNum = generateNumber();
 	var numGuesses = 0;
 
-	$("#submit").click(function()) {
+	$("#submit").click(function() {
 		console.log("clicked");
 		alert($("#submit").val());
-	}
+	});
 
 });
 

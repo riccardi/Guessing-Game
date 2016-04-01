@@ -116,12 +116,17 @@ function playAgain() {
 	$("#submit").removeAttr("disabled");
 	$("#num_guesses > span").html(numGuesses);
 	$("#gif").html("");
+	$("#guess").attr("value","");
 }
 
 function giveHint() {
 	var hintArray = [];
 	for(var i=1; i < (numGuesses*2); i++) {
-		hintArray.push(generateNumber());
+		var new_num = generateNumber();
+		//Make sure randomly generated number isn't a repeat
+		if (hintArray.indexOf(new_num) == -1) {
+			hintArray.push(new_num);
+		}
 	}
 	var index =Math.round(Math.random()*hintArray.length);
 	hintArray.splice(index,0,winningNum);
@@ -141,9 +146,19 @@ function displayGIF(player_status) {
 
 	if(player_status == "winner") {
 		var index = Math.round(Math.random()*winnerGIFs.length);
-		$("#gif").html(winnerGIFs[index]);
+		//Make sure a different GIF is being displayed
+		if ($("#gif").html() != winnerGIFs[index]) {
+			$("#gif").html(winnerGIFs[index]);
+		} else {
+			displayGIF(player_status);
+		}
 	} else {
 		var index = Math.round(Math.random()*loserGIFs.length);
-		$("#gif").html(loserGIFs[index]);
+		//Make sure a different GIF is being displayed
+		if(("#gif").html() != $("#gif").html(loserGIFs[index])) {
+			$("#gif").html(loserGIFs[index]);
+		} else {
+			displayGIF(player_status);
+		}
 	}
 }

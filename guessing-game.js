@@ -85,7 +85,7 @@ function lowerOrHigher(num) {
 }
 
 function isWinningNumber(num) {
-	if (numberGuessed == winningNum) {
+	if (num == winningNum) {
 		$("#hint").attr("disabled","disabled");
 		$("#submit").attr("disabled","disabled");
 		displayGIF("winner");

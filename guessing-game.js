@@ -39,16 +39,15 @@ function guess(num) {
 		$("#submit").attr("disabled","disabled");
 		return "You have no more guesses left. Please click Play Again.";
 	} else {
-		numberGuessed = parseInt(num);
 		if (isValid(num) == "Valid") {
-			if (isWinningNumber(numberGuessed)) {
+			if (isWinningNumber(parseInt(num))) {
 				return "You are the winner!";
 			} else {
-				return lowerOrHigher(numberGuessed);
+				return lowerOrHigher(parseInt(num));
 			}
-		} else if (isValid(numberGuessed) == "Invalid") {
+		} else if (isValid(num) == "Invalid") {
 			return "Your guess is not valid. Please input a number between 1 & 100";
-		} else if (isValid(numberGuessed) == "Duplicate") {
+		} else if (isValid(num) == "Duplicate") {
 			return "You submitted a duplicate guess.";
 		}
 	}

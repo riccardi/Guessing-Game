@@ -1,8 +1,8 @@
-$(document).ready(function() {
-	var winningNum = generateNumber();
-	var numGuesses = 0;
-	var prevGuesses = [];
+var winningNum = generateNumber();
+var numGuesses = 0;
+var prevGuesses = [];
 
+$(document).ready(function() {
 	console.log("winning number: " + winningNum);
 
 	$("#submit").click(function() {

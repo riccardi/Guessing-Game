@@ -78,7 +78,7 @@ function lowerOrHigher(num) {
 
 	displayGIF();
 	numGuesses--;
-	prevGuesses.push(numberGuessed);
+	prevGuesses.push(num);
 	$("#num_guesses > span").html(numGuesses);
 
 	return direction + distance;

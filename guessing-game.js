@@ -93,7 +93,7 @@ function isWinningNumber(num) {
 	    	if(e.which == 13) {
 	    		e.preventDefault();
 	    	}
-	    }
+	    });
 		return true;
 	} else {
 		return false;

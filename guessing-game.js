@@ -41,7 +41,7 @@ function guess(numberGuessed) {
 }
 
 function isValid(num) {
-	return (num > 0 && <= 100) ? true : false;
+	//return (num > 0 && num <= 100) ? true : false;
 	if (num < 1 || > 100) {
 		return "Invalid";
 	} else if (prevGuesses.indexOf(num) != -1) {

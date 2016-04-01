@@ -5,6 +5,13 @@ var prevGuesses = [];
 $(document).ready(function() {
 	console.log("winning number: " + winningNum);
 
+	$("#guess").keypress(function(e) {
+	    if(e.which == 13) {
+	        var message = guess($("#guess").val());
+			$("#status").html(message);
+			$("#guess").attr("value","");
+	    }
+	});
 	$("#submit").click(function() {
 		var message = guess($("#guess").val());
 		$("#status").html(message);
@@ -82,8 +89,8 @@ function isWinningNumber(num) {
 	if (numberGuessed == winningNum) {
 		$("#hint").attr("disabled","disabled");
 		$("#submit").attr("disabled","disabled");
-		numGuesses--;
 		displayGIF("winner");
+		numGuesses--;
 		return true;
 	} else {
 		return false;

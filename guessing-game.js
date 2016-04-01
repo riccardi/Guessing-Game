@@ -40,7 +40,7 @@ function guess(num) {
 		return "You have no more guesses left. Please click Play Again.";
 	} else {
 		numberGuessed = parseInt(num);
-		if (isValid(numberGuessed) == "Valid") {
+		if (isValid(num) == "Valid") {
 			if (isWinningNumber(numberGuessed)) {
 				return "You are the winner!";
 			} else {
@@ -98,7 +98,7 @@ function isWinningNumber(num) {
 }
 
 function isValid(num) {
-	if (num < 1 || num > 100 || num.match(/[a-z]/i)) {
+	if (num.match(/[a-z]/i) || parseInt(num) < 1 || parseInt(num) > 100) {
 		return "Invalid";
 	} else if (prevGuesses.indexOf(num) != -1) {
 		return "Duplicate";

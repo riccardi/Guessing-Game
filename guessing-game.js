@@ -98,7 +98,7 @@ function isWinningNumber(num) {
 }
 
 function isValid(num) {
-	if (num < 1 || num > 100 || !num.match("[0-9]+")) {
+	if (num < 1 || num > 100 || num.includes("[a-zA-Z]+")) {
 		return "Invalid";
 	} else if (prevGuesses.indexOf(num) != -1) {
 		return "Duplicate";

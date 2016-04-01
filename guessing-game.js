@@ -12,7 +12,7 @@ $(document).ready(function() {
 	});
 
 	$("#play_again").click(function() {
-		tryAgain();
+		playAgain();
 	});
 
 	$("#hint").click(function() {
@@ -67,23 +67,23 @@ function isValid(num) {
 	}
 }
 
-function tryAgain() {
+function playAgain() {
 	numGuesses = 5;
 	prevGuesses = [];
 	winningNum = generateNumber();
 	console.log("new winning number: " + winningNum);
 	$("#status").html("");
-	$("#hint").attr("disabled","");
-	$("#submit").attr("disabled","");
+	$("#hint").removeAttr("disabled");
+	$("#submit").removeAttr("disabled");
 	$("#num_guesses > span").html(numGuesses);
 }
 
 function giveHint() {
 	var hintArray = [];
-	for(var i=0; i < (numGuesses*2); i++) {
+	for(var i=1; i < (numGuesses*2); i++) {
 		hintArray.push(generateNumber());
 	}
 	var index =Math.round(Math.random()*hintArray.length);
 	hintArray.splice(index,0,winningNum);
-	return "One of these is the winning number: " + hintArray.join(", ");
+	return "One of these is the winning number:<br />" + hintArray.join(", ");
 }

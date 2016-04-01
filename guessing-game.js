@@ -1,6 +1,13 @@
 var winningNum = generateNumber();
 var numGuesses = 5;
 var prevGuesses = [];
+var winnerGifs = ['<iframe src="//giphy.com/embed/xbASkE3pEK7pC" width="480" height="274" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+'<iframe src="//giphy.com/embed/l41lWcjB65zASTfGM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+'<iframe src="//giphy.com/embed/tswHdSIDNfAUE" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'];
+var loserGifs = ['<iframe src="//giphy.com/embed/oIOVkU7Upb3wY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+'<iframe src="//giphy.com/embed/TlTxstYNiz0Yg" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+'<iframe src="//giphy.com/embed/oRFWicT90ngbK" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+'<iframe src="http://i.imgur.com/n0mcL51.gifv" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>']
 
 $(document).ready(function() {
 	console.log("winning number: " + winningNum);
@@ -46,7 +53,7 @@ function guess(num) {
 			} else if (numberGuessed < winningNum) {
 				direction = "Your guess is too low"
 			}
-			$("#gif").html('<iframe src="//giphy.com/embed/TlTxstYNiz0Yg" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/nba-joe-johnson-derrick-williams-TlTxstYNiz0Yg">via GIPHY</a></p>');
+			$("#gif").html('');
 			numGuesses--;
 			prevGuesses.push(numberGuessed);
 			$("#num_guesses > span").html(numGuesses);
@@ -78,6 +85,7 @@ function playAgain() {
 	$("#hint").removeAttr("disabled");
 	$("#submit").removeAttr("disabled");
 	$("#num_guesses > span").html(numGuesses);
+	$("#gif").html("");
 }
 
 function giveHint() {

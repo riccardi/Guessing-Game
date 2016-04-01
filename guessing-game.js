@@ -34,6 +34,7 @@ function generateNumber() {
 }
 
 function guess(num) {
+	console.log(prevGuesses);
 	if (numGuesses == 0) {
 		$("#hint").attr("disabled","disabled");
 		$("#submit").attr("disabled","disabled");
@@ -51,7 +52,6 @@ function guess(num) {
 			return "You submitted a duplicate guess.";
 		}
 	}
-	console.log(prevGuesses);
 }
 
 function lowerOrHigher(num) {

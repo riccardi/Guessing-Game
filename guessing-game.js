@@ -1,4 +1,3 @@
-<script>
 $(document).ready(function() {
 	console.log("here");
 	var winningNum = generateNumber();
@@ -40,5 +39,3 @@ function validateGuess(num) {
 	return (num > 0 && <= 100) ? true : false;
 
 }
-
-</script>

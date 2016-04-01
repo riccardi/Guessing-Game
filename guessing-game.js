@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	var winningNum = generateNumber();
 	var numGuesses = 0;
+	var prevGuesses = [];
 
 	console.log("winning number: " + winningNum);
 
@@ -17,7 +18,6 @@ function generateNumber() {
 }
 
 function guess(numberGuessed) {
-	var prevGuesses = [];
 	numGuess = parseInt(numberGuessed);
 	if (isValid(numGuess) == "Valid") {
 		var direction = '';

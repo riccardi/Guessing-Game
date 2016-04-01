@@ -36,28 +36,30 @@ function guess(num) {
 			var direction = '';
 			var distance = ''
 			if (numberGuessed == winningNum) {
-				return "You are the winner!";
 				$("#hint").attr("disabled","disabled");
 				$("#submit").attr("disabled","disabled");
+				numGuesses--;
+				$("#gif").html('<iframe src="//giphy.com/embed/l41lWcjB65zASTfGM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/nba-golden-state-warriors-steph-curry-2015-nba-playoffs-l41lWcjB65zASTfGM">via GIPHY</a></p>');
+				return "You are the winner!";
 			} else if (numberGuessed > winningNum) {
 				direction = "Your guess is too high"
 			} else if (numberGuessed < winningNum) {
 				direction = "Your guess is too low"
 			}
+			$("#gif").html('<iframe src="//giphy.com/embed/TlTxstYNiz0Yg" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/nba-joe-johnson-derrick-williams-TlTxstYNiz0Yg">via GIPHY</a></p>');
 			numGuesses--;
 			prevGuesses.push(numberGuessed);
 			$("#num_guesses > span").html(numGuesses);
 			return "Try again. " + direction + distance;
-		} else if (isValid(numGuess) == "Invalid") {
+		} else if (isValid(numberGuessed) == "Invalid") {
 			return "Your guess is not valid. Please input a number between 1 & 100";
-		} else if (isValid(numGuess) == "Duplicate") {
+		} else if (isValid(numberGuessed) == "Duplicate") {
 			return "You submitted a duplicate guess.";
 		}
 	}
 }
 
 function isValid(num) {
-	//return (num > 0 && num <= 100) ? true : false;
 	if (num < 1 || num > 100) {
 		return "Invalid";
 	} else if (prevGuesses.indexOf(num) != -1) {

@@ -1,15 +1,18 @@
 <script type="text/javascript">
 $(document).ready(function() {
+	console.log("here");
 	var winningNum = generateNumber();
 	var numGuesses = 0;
 
 	$("#submit").click(function()) {
+		console.log("clicked");
 		alert($("#submit").val());
 	}
 
 });
 
 function generateNumber () {
+	console.log("in generateNumber");
 	return Math.round(Math.random()*100);
 }
 

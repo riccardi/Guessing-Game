@@ -5,40 +5,48 @@ $(document).ready(function() {
 	console.log("winning number: " + winningNum);
 
 	$("#submit").click(function() {
-		console.log("clicked");
-		alert($("#guess").val());
+		var message = guess($("#guess").val());
+		$("#status").html(message);
+		$("#guess").attr("value","");
 	});
 
 });
 
-function generateNumber () {
-	console.log("in generateNumber");
+function generateNumber() {
 	return Math.round(Math.random()*100);
 }
 
-/*
-function guess() {
-	var guess = parseInt($("#submit").val());
-	if validateGuess(guess) {
+function guess(numberGuessed) {
+	var prevGuesses = [];
+	numGuess = parseInt(numberGuessed);
+	if (isValid(numGuess) == "Valid") {
 		var direction = '';
 		var distance = ''
 		if (guess == winningNum) {
 			return "You are the winner!";
 		} else if (guess > winningNum) {
-			
+			direction = "Your guess is too high"
 		} else if (guess < winningNum) {
-			return "Your guess is too low"
-			//$("#status").html("Your guess is too low");
+			direction = "Your guess is too low"
 		}
 		numGuesses++;
+		prevGuesses.push(numGuess);
 		$("#num_guesses > span").html(numGuesses);
-	} else {
+		return "Try again. " + direction + distance;
+	} else if (isValid(numGuess) == "Invalid") {
 		return "Your guess is not valid. Please input a number between 1 & 100";
+	} else if (isValid(numGuess) == "Duplicate") {
+		return "You submitted a duplicate guess.";
 	}
 }
 
-function validateGuess(num) {
+function isValid(num) {
 	return (num > 0 && <= 100) ? true : false;
-
+	if (num < 1 || > 100) {
+		return "Invalid";
+	} else if (prevGuesses.indexOf(num) != -1) {
+		return "Duplicate";
+	} else {
+		return "Valid";
+	}
 }
-*/

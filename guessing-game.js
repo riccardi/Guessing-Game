@@ -37,22 +37,46 @@ function guess(num) {
 			var distance = ''
 			if (isWinningNumber(numberGuessed)) {
 				return "You are the winner!";
-			} else if (numberGuessed > winningNum) {
-				direction = "Your guess is too high"
-			} else if (numberGuessed < winningNum) {
-				direction = "Your guess is too low"
+			} else {
+				return lowerOrHigher(numberGuessed);
 			}
-			displayGIF();
-			numGuesses--;
-			prevGuesses.push(numberGuessed);
-			$("#num_guesses > span").html(numGuesses);
-			return "Try again. " + direction + distance;
 		} else if (isValid(numberGuessed) == "Invalid") {
 			return "Your guess is not valid. Please input a number between 1 & 100";
 		} else if (isValid(numberGuessed) == "Duplicate") {
 			return "You submitted a duplicate guess.";
 		}
 	}
+}
+
+function lowerOrHigher(num) {
+	var direction = '';
+	var distance = '';
+	var difference = Math.abs(winningNum-num);
+	
+	if (num > winningNum) {
+		direction = "Your guess is too high ";
+	} else {
+		direction = "Your guess is too low ";
+	}
+
+	if (difference > 30) {
+		distance = "and it is cold!";
+	} else if (difference >= 20) {
+		distance = "and it is within 30 of the winning number!";
+	} else if (difference >= 10) {
+		distance = "and it is within 20 of the winning number!";
+	} else if (difference >= 5) {
+		distance = "and it is within 10 of the winning number!";
+	} else if (difference >= 1) {
+		distance = "and it is within 5 of the winning number!";
+	}
+
+	displayGIF();
+	numGuesses--;
+	prevGuesses.push(numberGuessed);
+	$("#num_guesses > span").html(numGuesses);
+
+	return direction + distance;
 }
 
 function isWinningNumber(num) {

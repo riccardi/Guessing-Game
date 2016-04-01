@@ -8,13 +8,13 @@ $(document).ready(function() {
 	    if(e.which == 13) {
 	        var message = guess($("#guess").val());
 			$("#status").html(message);
-			$("#guess").removeAttr("value");
+			document.getElementById("guess").value = "";
 	    }
 	});
 	$("#submit").click(function() {
 		var message = guess($("#guess").val());
 		$("#status").html(message);
-		$("#guess").removeAttr("value");
+		document.getElementById("guess").value = "";
 	});
 
 	$("#play_again").click(function() {
@@ -115,7 +115,7 @@ function playAgain() {
 	$("#submit").removeAttr("disabled");
 	$("#num_guesses > span").html(numGuesses);
 	$("#gif").html("");
-	$("#guess").removeAttr("value");
+	document.getElementById("guess").value = "";
 }
 
 function giveHint() {

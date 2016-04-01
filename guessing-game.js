@@ -146,19 +146,9 @@ function displayGIF(player_status) {
 
 	if(player_status == "winner") {
 		var index = Math.round(Math.random()*winnerGIFs.length);
-		//Make sure a different GIF is being displayed
-		if ($("#gif").html() != winnerGIFs[index]) {
-			$("#gif").html(winnerGIFs[index]);
-		} else {
-			displayGIF(player_status);
-		}
+		$("#gif").html(winnerGIFs[index]);
 	} else {
 		var index = Math.round(Math.random()*loserGIFs.length);
-		//Make sure a different GIF is being displayed
-		if($("#gif").html() != $("#gif").html(loserGIFs[index])) {
-			$("#gif").html(loserGIFs[index]);
-		} else {
-			displayGIF(player_status);
-		}
+		$("#gif").html(loserGIFs[index]);
 	}
 }

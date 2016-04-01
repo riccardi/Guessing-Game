@@ -21,23 +21,23 @@ function generateNumber() {
 	return Math.round(Math.random()*100);
 }
 
-function guess(numberGuessed) {
+function guess(num) {
 	if (numGuesses == 0) {
 		return "You have no more guesses left. Please click Try Again.";
 	} else {
-		guess = parseInt(numberGuessed);
-		if (isValid(guess) == "Valid") {
+		numberGuessed = parseInt(num);
+		if (isValid(numberGuessed) == "Valid") {
 			var direction = '';
 			var distance = ''
-			if (guess == winningNum) {
+			if (numberGuessed == winningNum) {
 				return "You are the winner!";
-			} else if (guess > winningNum) {
+			} else if (numberGuessed > winningNum) {
 				direction = "Your guess is too high"
-			} else if (guess < winningNum) {
+			} else if (numberGuessed < winningNum) {
 				direction = "Your guess is too low"
 			}
 			numGuesses--;
-			prevGuesses.push(guess);
+			prevGuesses.push(numberGuessed);
 			$("#num_guesses > span").html(numGuesses);
 			return "Try again. " + direction + distance;
 		} else if (isValid(numGuess) == "Invalid") {
